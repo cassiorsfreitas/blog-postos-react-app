@@ -1,34 +1,51 @@
 import React, { useState, useEffect } from 'react'
+
 import './style.css';
+
+import News from "../../components/news"
+
+const URL = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=50983daeea314c298f4ab9a183e078c0'
 
 function Home() {
 
-  const [posts, setPosts] = useState([])
+  const [notices, setNotices] = useState([])
+  const [article, setArticle] = useState()
+  const [visible, setVisible] = useState(false)
 
-  useEffect ( () => {
+  useEffect(() => {
     async function fetchData() {
-      const postsResponse = fetch('https://jsonplaceholder.typicode.com/posts')
-      const photosResponse = fetch('https://jsonplaceholder.typicode.com/photos')
-  
-      const [posts, photos] = await Promise.all([postsResponse, photosResponse])
-  
-      const postsJson = await posts.json()
-      const photosJson = await photos.json()
-  
-      const postsAndPhotos = postsJson.map((posts, index) => {
-        return {...posts, cover: photosJson[index].url}
-      })
-      setPosts(postsAndPhotos)
+      const noticesResponse = await fetch(URL)
+      const noticesJson = await noticesResponse.json()
+      setNotices(noticesJson.articles)
     }
     fetchData()
-    }, [])
+  }, [])
+
+  function onClick(index) {
+    setArticle(notices[index])
+    setVisible(true)
+  }
 
   return (
-    <div className="App">
-      {console.log(posts)}
-      Potato!
+    <div className="container">
+      
+      <div className="container-menu">
+        Potato
+      </div>
+
+      <div className="container-news">
+        <News data={notices} onClick={onClick} />
+        {visible && article && (
+          <div>
+            <h1>{article.title}</h1>
+            <p>{article.content}</p>
+            <button onClick={() => setVisible(false)}>Close</button>
+          </div>
+        )}
+      </div>
+    
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home
