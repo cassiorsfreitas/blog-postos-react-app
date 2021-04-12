@@ -1,0 +1,27 @@
+.card{
+    background: #171717;
+    color: white;
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.card .light-false{
+    background: #0F0F0F;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+}
+
+.card .light-true{
+    background: green;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+}
+
+.card h3{
+    margin-left: 10px;
+}
