@@ -9,7 +9,7 @@ function Card(props) {
 
     return (
         <div className="card" onClick={() => props.onClick(id)}>
-            <div className="light-false"></div>
+            <div className="light-true"></div>
             <h3>{name}</h3>
         </div>
     )
