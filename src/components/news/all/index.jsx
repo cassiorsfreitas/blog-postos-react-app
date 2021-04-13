@@ -3,7 +3,7 @@ import React from 'react'
 import './style.css'
 
 
-function News(props) {
+function All(props) {
 
     return (
         <div className="container-news-content">
@@ -26,4 +26,4 @@ function News(props) {
     )
 }
 
-export default News
+export default All

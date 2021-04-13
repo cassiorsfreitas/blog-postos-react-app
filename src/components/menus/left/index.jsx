@@ -7,15 +7,15 @@ import CardStatus from '../../cards/cardStatus'
 
 function LeftMenu(props) {
 
-    const categories = props.categories
+    const list = props.list
 
     return (
         <div className="container-menu">
             <CardStatus />
 
-            {categories.list.map( card => (
+            {list.map( card => (
                 <div key={card.id}>
-                    <CardDefault id={card.id} name={card.name} onClick={props.onClick} />
+                    <CardDefault id={card.id} name={card.name} onClick={props.onClick} visible={card.visible}/>
                 </div>
             ))}
         </div>

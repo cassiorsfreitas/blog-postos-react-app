@@ -6,10 +6,12 @@ function Card(props) {
 
     const name = props.name
     const id = props.id
+    const visible = props.visible
+    console.log(visible)
 
     return (
         <div className="card" onClick={() => props.onClick(id)}>
-            <div className="light-true"></div>
+            <div className={'light-' + visible}></div>
             <h3>{name}</h3>
         </div>
     )
