@@ -4,8 +4,8 @@ import './style.css';
 
 import News from "../../components/news/all"
 import LeftMenu from '../../components/menus/left'
-import loadNotices from '../../utils/loadNotices'
 
+import loadNotices from '../../utils/loadNotices'
 import loadCompanies from '../../utils/loadCompanies'
 
 
@@ -13,11 +13,11 @@ function Home() {
 
   const initCompanies = loadCompanies().list
   const initNotices = loadNotices()
-  
+
   const [list, setList] = useState(initCompanies)
-  
+
   let notices = []
-  
+
   function handleNotices() {
     const filteredId = list.map(obj => {
       return obj.visible && obj.id
@@ -35,12 +35,12 @@ function Home() {
   }
 
   handleNotices()
-  
+
   function handleVisible(id) {
     const newList = list.map(company => {
       return company.id === id ? { ...company, visible: !company.visible } : company
     })
-    
+
     setList(newList)
   }
 
