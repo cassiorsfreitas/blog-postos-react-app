@@ -7,7 +7,6 @@ function Card(props) {
     const name = props.name
     const id = props.id
     const visible = props.visible
-    console.log(visible)
 
     return (
         <div className="card" onClick={() => props.onClick(id)}>

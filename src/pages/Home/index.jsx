@@ -4,7 +4,7 @@ import './style.css';
 
 import News from "../../components/news/all"
 import LeftMenu from '../../components/menus/left'
-import LoadNotices from  '../../components/loader/LoadNotices'
+import loadNotices from '../../utils/loadNotices'
 
 import loadCompanies from '../../utils/loadCompanies'
 
@@ -12,16 +12,33 @@ import loadCompanies from '../../utils/loadCompanies'
 function Home() {
 
   const initCompanies = loadCompanies().list
-  const notices = LoadNotices()
-
-  // const [notices, setNotices] = useState([])
+  const initNotices = loadNotices()
+  
   const [list, setList] = useState(initCompanies)
+  
+  let notices = []
+  
+  function handleNotices() {
+    const filteredId = list.map(obj => {
+      return obj.visible && obj.id
+    })
 
-   function handleVisible(id) {
+    filteredId.every(v => v === false) ? notices = initNotices[0] : loadNewsNotices()
+
+    function loadNewsNotices() {
+      filteredId.map(visible => {
+        return visible && initNotices[visible].map(article => {
+          return notices.push(article)
+        })
+      })
+    }
+  }
+
+  handleNotices()
+  
+  function handleVisible(id) {
     const newList = list.map(company => {
-      console.log(id)
-      console.log(company.id)
-      return company.id === id ? {...company, visible: !company.visible} : company
+      return company.id === id ? { ...company, visible: !company.visible } : company
     })
     
     setList(newList)
@@ -29,7 +46,6 @@ function Home() {
 
   return (
     <div className="container">
-      {console.log(list)}
       <LeftMenu onClick={handleVisible} list={list} />
       <div className="container-news">
         <News data={notices} />

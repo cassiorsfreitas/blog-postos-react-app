@@ -3,7 +3,6 @@ const companies = {
         name: "All",
         tag: "all",
         url: 'https://newsapi.org/v2/top-headlines?country=us&apiKey=50983daeea314c298f4ab9a183e078c0',
-        visible: true
     },
     
     list: [
@@ -21,11 +20,14 @@ const companies = {
             url: 'https://newsapi.org/v2/everything?q=Google&from=2021-04-11&sortBy=popularity&apiKey=50983daeea314c298f4ab9a183e078c0',
             visible: false
         }
-    ]
+    ],
+
+    visible: false
 }
 
-function loadList() {
+function loadCompanies() {
+ 
     return companies
 }
 
-export default loadList
+export default loadCompanies
