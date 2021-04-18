@@ -12,7 +12,16 @@ function LoadNotices() {
     const [noticeAmazon, setNoticeAmazon] = useState([])
     const [noticeIntel, setNoticeIntel] = useState([])
 
-    const notices = [noticeAll, noticeApple, noticeGoogle, noticeMicrosoft, noticeFacebook, noticeAmazon, noticeIntel]
+    const notices = [
+        noticeAll,
+        noticeApple,
+        noticeGoogle,
+        noticeMicrosoft,
+        noticeFacebook,
+        noticeAmazon,
+        noticeIntel
+    ]
+
     const companies = loadCompanies()
 
     useEffect(() => {

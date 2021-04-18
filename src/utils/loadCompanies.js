@@ -48,9 +48,7 @@ const companies = {
             url: 'https://newsapi.org/v2/everything?q=Intel&sortBy=popularity&apiKey=50983daeea314c298f4ab9a183e078c0',
             visible: false
         }
-    ],
-
-    visible: false
+    ]
 }
 
 function loadCompanies() {
