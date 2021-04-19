@@ -48,7 +48,7 @@ function Home() {
     <div className="container">
       <LeftMenu onClick={handleVisible} list={list} />
       <div className="container-news">
-        {/* <News data={notices} /> */}
+        <News data={notices} />
       </div>
     </div>
   )

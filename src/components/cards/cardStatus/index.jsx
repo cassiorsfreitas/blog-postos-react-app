@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import LiveClock from '../../live-clock'
+import Date from '../../date'
 
 import './style.css'
 
@@ -24,20 +26,18 @@ function CardStatus() {
     }, [])
     
     
-    // const countryName = weather.value.base
-
     return (
         <div className="cardStatus">
             <div>
                 <div className="temperature">
                     <div className="number">{temp}</div>
-                    <div className="celsius">C</div>
+                    <div className="celsius">ºC</div>
                 </div>
 
                 <div className="extra">
                     <div className="localization">{cityName}, {countryName}</div>
-                    <div className="time">12:42</div>
-                    <div className="date">MON APR 19 2021</div>
+                    <div className="time"><LiveClock/></div>
+                    <div className="date"><Date/></div>
                 </div>
             </div>
         </div>
