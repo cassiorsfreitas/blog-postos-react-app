@@ -6,3 +6,29 @@
     padding: 20px;
     color: white;
 }
+
+.temperature {
+    font-size: 30pt;
+    display: flex;
+    font-weight: bold;
+}
+
+.temperature .celsius {
+    font-size: 22pt;
+    vertical-align: baseline;
+    color: darkgray;
+}
+
+.extra {
+    margin-top: 5px;
+}
+
+.extra .time{
+    font-size: 10pt;
+    margin-top: 5px;
+}
+
+.extra .date{
+    font-size: 10pt;
+    font-weight: bold;
+}

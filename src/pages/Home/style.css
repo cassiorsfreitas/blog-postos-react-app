@@ -6,6 +6,7 @@
 }
 
 .container-menu{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   background: #0F0F0F;
   padding: 20px;
   position: sticky;
